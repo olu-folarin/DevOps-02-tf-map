@@ -46,6 +46,15 @@ resource "aws_instance" "http_server" {
 
   // adding an html file to the server
   connection {
-    
+    // indicate the kinda connection you want to use
+    type = "ssh"
+
+    // where do you want to connect to? a public or private ip?
+    host = self.public_ip
+
+    // whiich ec2 user do you want to use? aws, by default, automatically assigns "ec2-user" to a newly created instance
+    user = "ec2-user"
+    // configure a private key
+    private_key = 
   }
 }
