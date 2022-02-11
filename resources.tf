@@ -37,10 +37,10 @@ resource "aws_security_group" "http_server_sg" {
 
 // create a virtual server
 resource "aws_instance" "http_server" {
-    ami = "ami-033b95fb8079dc481"
-    key_name = 
-    instance_type = "t2_micro"
-    vpc_security_group_ids = [aws_security_group.http_server_sg.id]
-    // get this from vpc on aws
-    subnet_id = "subnet-03f0d4627c28d93a5"
+  ami                    = "ami-033b95fb8079dc481"
+  key_name               = "friday-0211"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.http_server_sg.id]
+  // get this from vpc on aws
+  subnet_id = "subnet-03f0d4627c28d93a5"
 }
