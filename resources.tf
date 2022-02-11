@@ -55,6 +55,6 @@ resource "aws_instance" "http_server" {
     // whiich ec2 user do you want to use? aws, by default, automatically assigns "ec2-user" to a newly created instance
     user = "ec2-user"
     // configure a private key
-    private_key = 
+    private_key = file(var.aws_key_pair)
   }
 }
