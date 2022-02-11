@@ -43,4 +43,9 @@ resource "aws_instance" "http_server" {
   vpc_security_group_ids = [aws_security_group.http_server_sg.id]
   // get this from vpc on aws
   subnet_id = "subnet-03f0d4627c28d93a5"
+
+  // adding an html file to the server
+  connection {
+    
+  }
 }
