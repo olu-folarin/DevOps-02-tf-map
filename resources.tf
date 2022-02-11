@@ -57,4 +57,19 @@ resource "aws_instance" "http_server" {
     // configure a private key
     private_key = file(var.aws_key_pair)
   }
+
+  // provisioner
+  provisioner "remote-exec" {
+    inline = [
+      // execute commands here
+      // install an httpd server
+      "sudo yum install httpd -y",
+
+      // start the server
+      "sudo service httpd start",
+
+      // type a message and copy it to a file
+      "echo i recreated this and it's being displayed via my aws server situated at ${self.public_dns} |  sudo tee /var/www/index.html"
+    ]
+  }
 }
