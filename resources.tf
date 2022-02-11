@@ -69,7 +69,7 @@ resource "aws_instance" "http_server" {
       "sudo service httpd start",
 
       // type a message and copy it to a file
-      "echo i recreated this and it's being displayed via my aws server situated at ${self.public_dns} |  sudo tee /var/www/index.html"
+      "echo i recreated this and it's being displayed via my aws server situated at ${self.public_dns} |  sudo tee /var/www/html/index.html"
     ]
   }
 }
