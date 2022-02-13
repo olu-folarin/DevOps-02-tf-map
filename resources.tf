@@ -4,7 +4,9 @@
 
 resource "aws_security_group" "http_server_sg" {
   name   = "http_server_sg"
-  vpc_id = "vpc-075343a660b9eb15c"
+  // vpc_id = "vpc-075343a660b9eb15c"
+  // using the default value
+  vpd_id = aws_default_vpc.default.id
 
   // IN -> ingress: where to allow traffic from
   ingress {
