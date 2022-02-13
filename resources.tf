@@ -1,12 +1,18 @@
 // first create an HTTP server: 80 TCP, 22 TCP, CIDR ["0.0.0.0/0"]
 // then create a security group with the above config
 
+// meant to replace the default vpc
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
 
 resource "aws_security_group" "http_server_sg" {
   name   = "http_server_sg"
   // vpc_id = "vpc-075343a660b9eb15c"
   // using the default value
-  vpd_id = aws_default_vpc.default.id
+  vpc_id = aws_default_vpc.default.id
 
   // IN -> ingress: where to allow traffic from
   ingress {
