@@ -13,3 +13,7 @@ output "http_server_public_dns" {
 output "aws_default_vpc_id" {
   value = aws_default_vpc.default.id
 }
+
+output "aws_default_subnet_ids" {
+  value = data.aws_subnet_ids.default_subnets
+}

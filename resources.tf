@@ -8,6 +8,11 @@ resource "aws_default_vpc" "default" {
   }
 }
 
+// subnet ids
+data "aws_subnet_ids" "default_subnets" {
+  vpc_id = aws_default_vpc.default.id
+}
+
 resource "aws_security_group" "http_server_sg" {
   name   = "http_server_sg"
   // vpc_id = "vpc-075343a660b9eb15c"
@@ -50,7 +55,7 @@ resource "aws_instance" "http_server" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.http_server_sg.id]
   // get this from vpc on aws
-  subnet_id = "subnet-03f0d4627c28d93a5"
+  subnet_id = data.aws_subnet_ids.default_subnets
 
   // adding an html file to the server
   connection {
