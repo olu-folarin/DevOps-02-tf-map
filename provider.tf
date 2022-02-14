@@ -4,6 +4,6 @@ data "aws_subnet_ids" "default_subnets" {
 }
 
 // ami data provider
-data "aws_ami" "my_ami" {
+data "aws_ami" "latest_aws_linux_2" {
     
 }
