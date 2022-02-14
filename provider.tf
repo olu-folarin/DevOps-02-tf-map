@@ -7,6 +7,7 @@ data "aws_subnet_ids" "default_subnets" {
 data "aws_ami" "latest_aws_linux_2" {
   most_recent = true
   owners = ["amazon"]
+
   filter {
       name = "name"
       values = ["amzn2-ami-hvm-*"]
