@@ -45,14 +45,14 @@ resource "aws_security_group" "http_server_sg" {
 
 // create a virtual server
 resource "aws_instance" "http_server" {
-  // ami                    = "ami-033b95fb8079dc481"
+  ami                    = "ami-033b95fb8079dc481"
   // from data.aws_ami
-  ami = data.aws_ami.latest_aws_linux_2.id
+  // ami = data.aws_ami.latest_aws_linux_2.id
   key_name               = "friday-0211"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.http_server_sg.id]
   // get this from vpc on aws
-  subnet_id = data.aws_subnet_ids.default_subnets
+  subnet_id = tolist(data.aws_subnet_ids.default_subnets.ids)[3]
 
   // adding an html file to the server
   connection {
