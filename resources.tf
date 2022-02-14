@@ -9,7 +9,7 @@ resource "aws_default_vpc" "default" {
 }
 
 resource "aws_security_group" "http_server_sg" {
-  name   = "http_server_sg"
+  name = "http_server_sg"
   // vpc_id = "vpc-075343a660b9eb15c"
   // using the default value
   vpc_id = aws_default_vpc.default.id
