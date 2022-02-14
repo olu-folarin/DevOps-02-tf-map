@@ -47,7 +47,7 @@ resource "aws_security_group" "http_server_sg" {
 resource "aws_instance" "http_server" {
   // ami                    = "ami-033b95fb8079dc481"
   // from data.aws_ami
-  ami = data.aws_ami.latest_aws_linux_2.id
+  ami                    = data.aws_ami.latest_aws_linux_2.id
   key_name               = var.ec2_key
   instance_type          = var.ec2_instance_type
   vpc_security_group_ids = [aws_security_group.http_server_sg.id]
